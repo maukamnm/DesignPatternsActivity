@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Add Album Response</title>
+</head>
+<body>
+<h1 style="text-align: center;">Add Music Album Response</h1>
+
+<p>Title: #{album.title}</p>
+<p>Artist: #{album.artist}</p>
+<p>Year: #{album.year}</p>
+
+<h:form>
+    <h:commandButton value="Add Another" outcome="AddAlbumForm.xhtml" />
+</h:form>
+</body>
+</html>

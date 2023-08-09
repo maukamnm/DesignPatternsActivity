@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>my-project</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <java.version>17</java.version>
+    <spring-boot.version>2.6.3</spring-boot.version>
+  </properties>
+  <dependencies>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <scope>runtime</scope>
+    <optional>true</optional>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.16</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+    <version>3.0.3.RELEASE</version>
+  </dependency>
+</dependencies>
+</project>
+
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+        <!--  <modelVersion>4.0.0</modelVersion>-->
+        <!--  <parent>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--    <version>3.1.1</version>-->
+        <!--    <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+        <!--  </parent>-->
+        <!--  <groupId>com.munoz</groupId>-->
+        <!--  <artifactId>act3</artifactId>-->
+        <!--  <version>0.0.1-SNAPSHOT</version>-->
+        <!--  <packaging>war</packaging>-->
+        <!--  <name>act4</name>-->
+        <!--  <description>act4</description>-->
+        <!--  <properties>-->
+        <!--    <java.version>17</java.version>-->
+        <!--    <maven.compiler.source>17</maven.compiler.source>-->
+        <!--    <maven.compiler.target>17</maven.compiler.target>-->
+        <!--  </properties>-->
+        <!--  <repositories>-->
+        <!--  <repository>-->
+        <!--    <id>jvnet-nexus-releases</id>-->
+        <!--    <name>jvnet-nexus-releases</name>-->
+        <!--    <url>https://maven.java.net/content/repositories/releases/</url>-->
+        <!--  </repository>-->
+        <!--  </repositories>-->
+        <!--  <dependencies>-->
+        <!--    <dependency>-->
+        <!--      <groupId>javax.validation</groupId>-->
+        <!--      <artifactId>validation-api</artifactId>-->
+        <!--      <version>2.0.1.Final</version>-->
+        <!--    </dependency>-->
+        <!--        <dependency>-->
+        <!--              <groupId>junit</groupId>-->
+        <!--              <artifactId>junit</artifactId>-->
+        <!--              <version>3.8.1</version>-->
+        <!--              <scope>test</scope>-->
+        <!--            </dependency>-->
+        <!--&lt;!&ndash;    <dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <groupId>javax</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <artifactId>javaee-api</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <version>8.0</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <scope>provided</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;    </dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <groupId>javax.faces</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <artifactId>javax.faces-api</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <version>2.3</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <scope>provided</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;  </dependency>&ndash;&gt;-->
+        <!--    <dependency>-->
+        <!--      <groupId>javax.faces</groupId>-->
+        <!--      <artifactId>jsf-api</artifactId>-->
+        <!--      <version>1.2_15</version>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>javax.faces</groupId>-->
+        <!--      <artifactId>jsf-impl</artifactId>-->
+        <!--      <version>1.2_15</version>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>jakarta.ejb</groupId>-->
+        <!--      <artifactId>jakarta.ejb-api</artifactId>-->
+        <!--      <version>4.0.0</version>-->
+        <!--    </dependency>-->
+
+        <!--    &lt;!&ndash;    <dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <groupId>jakarta.faces</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <artifactId>jakarta.faces-api</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <version>4.0.0</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;      was 3.0&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;      <scope>provided</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;    </dependency>&ndash;&gt;-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-data-rest</artifactId>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-web-services</artifactId>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-webflux</artifactId>-->
+        <!--    </dependency>-->
+
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-devtools</artifactId>-->
+        <!--      <scope>runtime</scope>-->
+        <!--      <optional>true</optional>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-tomcat</artifactId>-->
+        <!--      <scope>provided</scope>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.boot</groupId>-->
+        <!--      <artifactId>spring-boot-starter-test</artifactId>-->
+        <!--      <scope>test</scope>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>io.projectreactor</groupId>-->
+        <!--      <artifactId>reactor-test</artifactId>-->
+        <!--      <scope>test</scope>-->
+        <!--    </dependency>-->
+        <!--    <dependency>-->
+        <!--      <groupId>org.jetbrains</groupId>-->
+        <!--      <artifactId>annotations</artifactId>-->
+        <!--      <version>RELEASE</version>-->
+        <!--      <scope>compile</scope>-->
+        <!--    </dependency>-->
+        <!--  </dependencies>-->
+
+        <!--  <build>-->
+        <!--    <plugins>-->
+        <!--      <plugin>-->
+        <!--        <groupId>org.springframework.boot</groupId>-->
+        <!--        <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--      </plugin>-->
+        <!--    </plugins>-->
+        <!--  </build>-->
+
+        <!--</project>-->
+
+
+
+
+
+
+
+
+
+
+
+        <!--        &lt;!&ndash;<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&ndash;&gt;-->
+        <!--        &lt;!&ndash;  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <modelVersion>4.0.0</modelVersion>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <groupId>org.example</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <artifactId>DynamicWeb</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <packaging>war</packaging>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <version>1.0-SNAPSHOT</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <name>DynamicWeb Maven Webapp</name>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <url>http://maven.apache.org</url>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <dependencies>&ndash;&gt;-->
+        <!--        &lt;!&ndash;    <dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;      <groupId>junit</groupId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;      <artifactId>junit</artifactId>&ndash;&gt;-->
+        <!--        &lt;!&ndash;      <version>3.8.1</version>&ndash;&gt;-->
+        <!--        &lt;!&ndash;      <scope>test</scope>&ndash;&gt;-->
+        <!--        &lt;!&ndash;    </dependency>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  </dependencies>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  <build>&ndash;&gt;-->
+        <!--        &lt;!&ndash;    <finalName>DynamicWeb</finalName>&ndash;&gt;-->
+        <!--        &lt;!&ndash;  </build>&ndash;&gt;-->
+        <!--        &lt;!&ndash;</project>&ndash;&gt;-->
+
+
+        <!--        &lt;!&ndash;<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&ndash;&gt;-->
+        <!--&lt;!&ndash;  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">&ndash;&gt;-->
+        <!--&lt;!&ndash;  <modelVersion>4.0.0</modelVersion>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <groupId>org.example</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <artifactId>act4</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <packaging>war</packaging>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <version>1.0-SNAPSHOT</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <name>act4 Maven Webapp</name>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <url>http://maven.apache.org</url>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <dependencies>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <groupId>junit</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <artifactId>junit</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <version>3.8.1</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;      <scope>test</scope>&ndash;&gt;-->
+        <!--&lt;!&ndash;    </dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;  </dependencies>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <build>&ndash;&gt;-->
+        <!--&lt;!&ndash;    <finalName>act4</finalName>&ndash;&gt;-->
+        <!--&lt;!&ndash;  </build>&ndash;&gt;-->
+        <!--&lt;!&ndash;</project>&ndash;&gt;-->

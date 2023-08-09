@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Add Music Album</title>
+</head>
+<body>
+<h1 style="text-align: center;">Add Music Album</h1>
+
+<h:form>
+    <h:outputLabel for="title" value="Title:" />
+    <h:inputText id="title" value="#{album.title}" />
+    <h:message for="title" />
+
+    <h:outputLabel for="artist" value="Artist:" />
+    <h:inputText id="artist" value="#{album.artist}" />
+    <h:message for="artist" />
+
+    <h:outputLabel for="year" value="Year:" />
+    <h:inputText id="year" value="#{album.year}" minlength="4" />
+    <h:message for="year" />
+
+    <h:commandButton value="Submit" action="#{albumController.onSubmit(album)}" />
+</h:form>
+</body>
+</html>
