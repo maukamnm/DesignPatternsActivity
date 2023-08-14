@@ -35,21 +35,21 @@ public class UniqueExceptionHandler extends ExceptionHandlerWrapper
 
         while (queue.hasNext())
         {
-            ExceptionQueuedEvent item = queue.next();
-            ExceptionQueuedEventContext exceptionQueuedEventContext = (ExceptionQueuedEventContext)item.getSource();
+            ExceptionQueuedEvent qEvent = queue.next();
+            ExceptionQueuedEventContext exceptionQueuedEventContext = (ExceptionQueuedEventContext)qEvent.getSource();
             try 
             {
                 Throwable throwable = exceptionQueuedEventContext.getException();
                 
-                StringWriter sw = new StringWriter();
-                PrintWriter pw = new PrintWriter(sw);
-                throwable.printStackTrace(pw);
+                StringWriter writer = new StringWriter();
+                PrintWriter pWriter = new PrintWriter(writer);
+                throwable.printStackTrace(pWriter);
 
                 FacesContext context = FacesContext.getCurrentInstance();
                 Map<String, Object> requestMap = context.getExternalContext().getRequestMap();
                 NavigationHandler nav = context.getApplication().getNavigationHandler();
                 requestMap.put("error-message", throwable.getMessage());
-                requestMap.put("error-stack", sw.toString());
+                requestMap.put("error-stack", writer.toString());
                 nav.handleNavigation(context, null, "Error.xhtml");
                 context.renderResponse();
             } 

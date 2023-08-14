@@ -24,6 +24,56 @@ public abstract class MusicDataService implements DataAccessInterface<Album>
     public MusicDataService() 
     {
     }
+	public boolean create(Album album)
+	{
+		Connection conn = null;
+		String url = "jdbc:mysql://localhost:3360/designPatterns";
+		String username = "root";
+		String password = "root";
+		
+		try 
+		{
+			conn = DriverManager.getConnection(url, username, password);
+
+			String sql1 = String.format("INSERT INTO  ALBUM(TITLE, ARTIST, YEAR) VALUES('%s', '%s', %d)", album.getTitle(), album.getArtist(), album.getYear());
+			Statement stmt1 = conn.createStatement();
+			stmt1.executeUpdate(sql1);
+			String sql2= "SELECT LAST_INSERT_ID() AS LAST_ID FROM ALBUM";
+			ResultSet rs = stmt1.executeQuery(sql2);
+			rs.next();
+			String albumId = rs.getString("LAST_ID");
+			rs.close();
+			stmt1.close();
+			Statement stmt2 = conn.createStatement();
+			for(Track track : album.getTracks())
+			{
+				String sql3 = String.format("INSERT INTO TRACK(ALBUM_ID, TITLE, NUMBER) VALUES(%d, '%s', %d)", Integer.valueOf(albumId), track.getTitle(), track.getNumber());
+				stmt2.executeUpdate(sql3);
+			}
+			stmt2.close();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			throw new DatabaseException(e);
+		}
+		finally {
+			if(conn != null)
+			{
+				try 
+				{
+					conn.close();
+				} 
+				catch (SQLException e) 
+				{
+					e.printStackTrace();
+					throw new DatabaseException(e);
+				}
+			}
+		}
+		return true;
+	}
+	
 
 	public Album findById(int id)
 	{
@@ -150,56 +200,6 @@ public abstract class MusicDataService implements DataAccessInterface<Album>
 		return album;
 	}
 
-	public boolean create(Album album)
-	{
-		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3360/designPatterns";
-		String username = "root";
-		String password = "root";
-		
-		try 
-		{
-			conn = DriverManager.getConnection(url, username, password);
-
-			String sql1 = String.format("INSERT INTO  ALBUM(TITLE, ARTIST, YEAR) VALUES('%s', '%s', %d)", album.getTitle(), album.getArtist(), album.getYear());
-			Statement stmt1 = conn.createStatement();
-			stmt1.executeUpdate(sql1);
-			String sql2= "SELECT LAST_INSERT_ID() AS LAST_ID FROM ALBUM";
-			ResultSet rs = stmt1.executeQuery(sql2);
-			rs.next();
-			String albumId = rs.getString("LAST_ID");
-			rs.close();
-			stmt1.close();
-			Statement stmt2 = conn.createStatement();
-			for(Track track : album.getTracks())
-			{
-				String sql3 = String.format("INSERT INTO TRACK(ALBUM_ID, TITLE, NUMBER) VALUES(%d, '%s', %d)", Integer.valueOf(albumId), track.getTitle(), track.getNumber());
-				stmt2.executeUpdate(sql3);
-			}
-			stmt2.close();
-		} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-			throw new DatabaseException(e);
-		}
-		finally {
-			if(conn != null)
-			{
-				try 
-				{
-					conn.close();
-				} 
-				catch (SQLException e) 
-				{
-					e.printStackTrace();
-					throw new DatabaseException(e);
-				}
-			}
-		}
-		return true;
-	}
-	
 	public boolean update(Album order)
 	{
 		return true;
