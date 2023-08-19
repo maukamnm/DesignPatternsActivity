@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="C:/Users/mauka/OneDrive/Documents/DeisgnPatterns/Library/validation-api-1.1.0.final.jar/validation-api-1.1.0.final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mauka/OneDrive/Documents/DeisgnPatterns/Library/javax.ejb.jar/javax.ejb.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mauka/OneDrive/Documents/DeisgnPatterns/Library/javax.ws.rs.jar/javax.ws.rs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mauka/OneDrive/Documents/DeisgnPatterns/Library/cdi-api-1.1.jar/cdi-api-1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,51 +1,42 @@
 package business;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
+import util.AlbumNotFoundException;
+import util.TracksNotFoundException;
+
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import beans.Album;
-import beans.Track;
-import util.TracksNotFoundException;
+import javax.inject.Inject;
 
+import beans.Album;
+import data.DataInterface;
+
+/**
+ * Session Bean implementation class MusicManager
+ */
 @Stateless
 @Local(MusicManagerInterface.class)
 @LocalBean
 public class MusicManager implements MusicManagerInterface {
-	HashMap<String, List<Track>> tracks;
+	@EJB
+    DataInterface<Album> dao;
+    @Inject
+	TrackFinderInterface tf;
+	
+    public MusicManager() {}
 
-	public MusicManager() {
-		tracks = new HashMap<String, List<Track>>();
-		List<Track> tracks1 = new ArrayList<Track>();
-		tracks1.add(new Track("Man in the Mirror", 1));
-		tracks1.add(new Track("Electric sunrise", 2));
-		tracks1.add(new Track("GOAT", 3));
-		tracks1.add(new Track("This is it", 4));
-		tracks1.add(new Track("Flyin high", 5));
-		tracks1.add(new Track("What is new", 6));
-		tracks1.add(new Track("Crosty", 7));
-		tracks1.add(new Track("Saucy", 8));
-		tracks1.add(new Track("New levels", 9));
-		tracks.put("The random ones", tracks1);
-	}
-	private List<Track> getTracks(Album album) {
-		String key = album.getArtist() + " - " + album.getTitle() + " - " + album.getYear();
-		if (tracks.containsKey(key)) {
-			return tracks.get(key);
-		} else {
-			return new ArrayList<Track>();
-		}
-	}
-	@Override
-	public Album addAlbum(Album album) throws TracksNotFoundException {
-		album.setTracks(getTracks(album));
-		if (album.getNumberTracks() == 0)
-			throw new TracksNotFoundException();
-		return album;
-	}
-
-
+    @Override
+    public Album addAlbum(Album album) {
+    	Album created = this.dao.create(album);
+    	if(created.getTracks().size() == 0) throw new TracksNotFoundException("No tracks found");
+		return created;
+    }
+    @Override
+	public Album getAlbum(Album album) {
+		Album found = this.dao.findBy(album);
+		if(found == null) throw new AlbumNotFoundException("Could not find album ");
+		return found;
+	} 
 }

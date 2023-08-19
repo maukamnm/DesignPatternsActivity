@@ -1,30 +1,29 @@
 package beans;
 
 public class Track {
-	String title;
-	int number;
+	private String name;
+	private int number;
 	
-	public Track(String string, int i)
-	{
-		title = "";
+	public Track() {
+		name = "";
 		number = 0;
 	}
-
-	public String getTitle()
-	{
-		return title;
+	
+	public Track(String title, int number) {
+		this.name = title;
+		this.number = number;
 	}
-	public void setTitle(String title)
-	{
-		this.title = title;
+	
+	public String getName() {
+		return name;
 	}
-
-	public int getNumber()
-	{
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getNumber() {
 		return number;
 	}
-	public void setNumber(int number)
-	{
+	public void setNumber(int number) {
 		this.number = number;
-	}	
+	}
 }

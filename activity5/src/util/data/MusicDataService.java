@@ -190,7 +190,7 @@ public abstract class MusicDataService implements DataAccessInterface<Album>
 			Statement stmt2 = conn.createStatement();
 			for(Track track : album.getTracks())
 			{
-				String sql3 = String.format("INSERT INTO TRACK(ALBUM_ID, TITLE, NUMBER) VALUES(%d, '%s', %d)", Integer.valueOf(albumId), track.getTitle(), track.getNumber());
+				String sql3 = String.format("INSERT INTO TRACK(ALBUM_ID, TITLE, NUMBER) VALUES(%d, '%s', %d)", Integer.valueOf(albumId), track.getName(), track.getNumber());
 				stmt2.executeUpdate(sql3);
 			}
 			stmt2.close();

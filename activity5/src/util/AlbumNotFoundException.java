@@ -1,6 +1,9 @@
 package util;
 
-public class AlbumNotFoundException extends Exception
-{
-	private static final long serialVersionUID = 8749912411505566655L;
+public class AlbumNotFoundException extends RuntimeException  {
+
+	private static final long serialVersionUID = 1L;
+	 public AlbumNotFoundException(String errorMessage) {
+	        super(errorMessage);
+	 }
 }
