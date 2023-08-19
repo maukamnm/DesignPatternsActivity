@@ -8,16 +8,13 @@
 	<title>Add Album Response</title>
 </h:head> 
 
-<body> 
-	<div align="center">
-		<h1>Add Music Album Response</h1>
-		<br/>
-		 Album #{album.title} by Artist #{album.artist} in Year #{album.year} was added.
-		<br/>
-		<h:form>
-			<h:button value="Add Another" outcome="AddAlbumForm.xhtml" />
-		</h:form>
-	</div>
-</body> 
+    <h:body>
+        <h1 style="margin-left:auto;margin-right:auto;text-align:center;">Add Album Response</h1>
+        <p>Title: #{album.title}</p>
+        <p>Artist: #{album.artist}</p>
+        <p>Year: #{album.year}</p>
+        <p>Tracks: #{trackCount}</p>
+        <h:button value="Add Another Album" outcome="AddAlbumForm.xhtml"></h:button>
+    </h:body>
 
 </html>

@@ -8,17 +8,23 @@
 	<title>Add Music Album</title>
 </h:head> 
 
-<body>
-	<div align="center">
-		<h1>Add Music Album</h1>
-		<h:form>
-			Title: <h:inputText id="title" value="#{album.title}" title="" /><h:message for="title"/><br/>
-			Artist: <h:inputText id="artist" value="#{album.artist}" title="" /><h:message for="artist"/><br/>
-			Year: <h:inputText id="year" value="#{album.year}" title="" minlength="4" /><h:message for="year"/><br/>
-			<h:commandButton value="Submit" action="#{albumController.onSubmit(album)}" />
-		</h:form>
-		<h:messages />
-	</div>  
-</body> 
+    <h:body>
+        <h1 style="margin-left:auto;margin-right:auto;text-align:center;">Add Album Form</h1>
+       
+        <h:form>
+            <h:outputLabel for="title" value="Title" />
+            <h:inputText id="title" value="#{album.title}" />
+            <h:message for = "title" style = "color:Blue" /> 
+            <h:outputLabel for="artist" value="Artist" />
+            <h:inputText id="artist" value="#{album.artist}" />
+            <h:message for = "artist" style = "color:red" /> 
+            <h:outputLabel for="year" value="Year" />
+            <h:inputText id="year" minlength="4" value="#{album.year}" />
+            <h:message for = "year" style = "color:red" /> 
+            <h:commandButton value="Find" action="#{albumController.onFind(album)}"></h:commandButton>
+            <h:commandButton value="Submit" action="#{albumController.onSubmit(album)}">
+            </h:commandButton>
+        </h:form>
+    </h:body>
 
 </html>
