@@ -18,6 +18,7 @@ import data.DataInterface;
  */
 @Stateless
 @Local(MusicManagerInterface.class)
+@Local(Cache.class)
 @LocalBean
 public class MusicManager implements MusicManagerInterface {
 	@EJB
